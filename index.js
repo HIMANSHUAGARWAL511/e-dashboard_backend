@@ -10,7 +10,7 @@ const DataBase = process.env.DataBase;
 const PORT = 5000
 const connectDB = async () => {
   await mongoose
-    .connect("mongodb://localhost:27017/e-commerce")
+    .connect("mongodb://127.0.0.1:27017/e-commerce")
     .then(() => {
       console.log("Mongodb Connected")
     })
