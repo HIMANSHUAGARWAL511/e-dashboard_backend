@@ -1,16 +1,20 @@
 const express = require('express');
 const cors = require("cors");
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 const jwt = require('jsonwebtoken')
 // const http = require('http');
 // const User = require("./db/User");
 // require("./db/config")
 const mongoose = require('mongoose')
 const app = express();
-const DataBase = process.env.DataBase;
-const PORT = 5000
+const Database = process.env.DATABASE_URL;
+const PORT = process.env.PORT || 5000
 const connectDB = async () => {
   await mongoose
-    .connect("mongodb://127.0.0.1:27017/e-commerce")
+    .connect(Database, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
       console.log("Mongodb Connected")
     })
