@@ -11,7 +11,7 @@ const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
 const app = express();
 const Database = process.env.DATABASE_URL;
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT;
 const connectDB = async () => {
   await mongoose
     .connect(Database, { useNewUrlParser: true, useUnifiedTopology: true })
